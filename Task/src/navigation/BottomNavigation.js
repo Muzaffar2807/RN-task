@@ -1,9 +1,10 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
-import Home from '../screens/Home';
-import ProductDetails from '../screens/ProductDetails';
-
+ 
+import Categories from '../screens/Categories/Categories';
+import Favourite from '../screens/Favourites/Favourite';
+import More from '../screens/More/More';
+import HomeStack from './HomeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,11 +15,13 @@ const screenOptionStyle = {
 function BottomNavigation() {
   return (
     <Tab.Navigator
-      screenOptions={{ 
+      screenOptions={{
         headerShown: false,
       }}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="ProductDetails" component={ProductDetails} />
+      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="Categories" component={Categories} />
+      <Tab.Screen name="Favourite" component={Favourite} />
+      <Tab.Screen name="More" component={More} />
     </Tab.Navigator>
   );
 }
