@@ -1,12 +1,21 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import {View, Text} from 'react-native';
+import React from 'react';
 
-const Home = () => {
+import styles from './Home.styles';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+
+const Home = ({ navigation }) => {
   return (
     <View>
-      <Text>Home here</Text>
-    </View>
-  )
-}
+      <Text style={styles.test}>Home here</Text>
 
-export default Home
+      <TouchableOpacity onPress={() => {
+        navigation.navigate('Productdetails');
+      }}>
+        <Text>Go</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default Home;

@@ -14,10 +14,7 @@ const screenOptionStyle = {
 
 function BottomNavigation() {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}>
+    <Tab.Navigator screenOptions={screenOptionStyle}>
       <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Categories" component={Categories} />
       <Tab.Screen name="Favourite" component={Favourite} />
