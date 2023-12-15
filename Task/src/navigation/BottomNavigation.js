@@ -16,7 +16,11 @@ function BottomNavigation() {
   return (
     <Tab.Navigator screenOptions={screenOptionStyle}>
       <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Categories" component={Categories} />
+      <Tab.Screen
+        name="Categories"
+        component={Categories}
+        options={{tabBarVisible: false}}
+      />
       <Tab.Screen name="Favourite" component={Favourite} />
       <Tab.Screen name="More" component={More} />
     </Tab.Navigator>
