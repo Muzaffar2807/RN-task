@@ -14,12 +14,12 @@ const screenOptionStyle = {
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator screenOptions={screenOptionStyle}>
+    <Stack.Navigator initialRouteName='Home' screenOptions={screenOptionStyle}>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen
         name="Productdetails"
         component={ProductDetails}
-        options={{tabBarVisible: false}}
+        options={{tabBarVisible: true}}
       />
       <Stack.Screen name="CartScreen" component={Cart} />
     </Stack.Navigator>

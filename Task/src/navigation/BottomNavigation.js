@@ -1,30 +1,92 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
- 
+import {StyleSheet, Platform, TouchableOpacity} from 'react-native';
+
+import Icon from 'react-native-vector-icons/Ionicons';
+import CustomTabBarButton from '../components/CustomTabBarButton';
+import CustomTabBar from '../components/CustomTabBar';
+import {useNavigation} from '@react-navigation/native';
+
+import HomeStack from './HomeStack';
 import Categories from '../screens/Categories/Categories';
 import Favourite from '../screens/Favourites/Favourite';
 import More from '../screens/More/More';
-import HomeStack from './HomeStack';
+import Home from '../screens/Home/Home';
 
 const Tab = createBottomTabNavigator();
 
-const screenOptionStyle = {
-  headerShown: false,
-};
+function BottomTabNavigator() {
+   
 
-function BottomNavigation() {
   return (
-    <Tab.Navigator screenOptions={screenOptionStyle}>
-      <Tab.Screen name="Home" component={HomeStack} />
+    <Tab.Navigator
+      tabBar={props => <CustomTabBar {...props} />}
+      screenOptions={({route}) => ({
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarInactiveTintColor: 'red',
+        tabBarStyle: styles.tabBarStyle,
+        tabBarActiveTintColor: 'blue',
+        tabBarIcon: ({color, size, focused}) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Categories') {
+            iconName = focused ? 'grid' : 'grid-outline';
+          } else if (route.name === 'Favourite') {
+            iconName = focused ? 'heart' : 'heart-outline';
+          } else if (route.name === 'More') {
+            iconName = focused
+              ? 'ellipsis-vertical-sharp'
+              : 'ellipsis-vertical-outline';
+          }
+
+          return <Icon name={iconName} size={22} color={color} />;
+        },
+      })}>
+      <Tab.Screen
+        name="Home"
+        component={HomeStack}
+        options={{
+          tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
+        }}
+      />
       <Tab.Screen
         name="Categories"
         component={Categories}
-        options={{tabBarVisible: false}}
+        options={{
+          tabBarButton: props => <CustomTabBarButton {...props} />,
+        }}
       />
-      <Tab.Screen name="Favourite" component={Favourite} />
-      <Tab.Screen name="More" component={More} />
+      <Tab.Screen
+        name="Favourite"
+        component={Favourite}
+        options={{
+          tabBarButton: props => <CustomTabBarButton {...props} />,
+        }}
+      />
+      <Tab.Screen
+        name="More"
+        component={More}
+        options={{
+          tabBarButton: props => <CustomTabBarButton route="more" {...props} />,
+        }}
+      />
     </Tab.Navigator>
   );
 }
 
-export default BottomNavigation
+export default BottomTabNavigator;
+
+const styles = StyleSheet.create({
+  tabBarStyle: {
+    position: 'absolute',
+    backgroundColor: 'transparent',
+    borderTopWidth: 0,
+    bottom: 15,
+    right: 10,
+    left: 10,
+    height: 60,
+  },
+});

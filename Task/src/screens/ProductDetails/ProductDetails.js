@@ -4,7 +4,7 @@ import {React, useEffect} from 'react';
 import styles from './ProductDetails.styles';
 
 const ProductDetails = ({navigation}) => {
-  useEffect(() => {
+ /*  useEffect(() => {
     navigation
       .getParent()
       ?.setOptions({tabBarStyle: {display: 'none'}, tabBarVisible: false});
@@ -12,7 +12,7 @@ const ProductDetails = ({navigation}) => {
       navigation
         .getParent()
         ?.setOptions({tabBarStyle: undefined, tabBarVisible: undefined});
-  }, [navigation]);
+  }, [navigation]); */
 
   return (
     <View>
