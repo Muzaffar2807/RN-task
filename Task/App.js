@@ -8,8 +8,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        <AppNavigation />
-       
+        <AppNavigation /> 
       </SafeAreaView>
     </NavigationContainer>
   );

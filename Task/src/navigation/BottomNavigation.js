@@ -24,9 +24,9 @@ function BottomTabNavigator() {
       screenOptions={({route}) => ({
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarInactiveTintColor: 'red',
+        tabBarInactiveTintColor: '#000000',
         tabBarStyle: styles.tabBarStyle,
-        tabBarActiveTintColor: 'blue',
+        tabBarActiveTintColor: '#E0B420',
         tabBarIcon: ({color, size, focused}) => {
           let iconName;
 
@@ -87,6 +87,6 @@ const styles = StyleSheet.create({
     bottom: 15,
     right: 10,
     left: 10,
-    height: 60,
+    height: 60, 
   },
 });
