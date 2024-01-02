@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet, Image} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 const OffersCard = () => {
   const data = [
@@ -14,7 +14,7 @@ const OffersCard = () => {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.scrollViewContent}>
       {data.map(item => (
-        <View key={item.id} style={styles.item}>
+        <TouchableOpacity key={item.id} style={styles.item}>
           <View>
             <Image
               style={styles.image}
@@ -26,7 +26,7 @@ const OffersCard = () => {
             <Text style={{fontSize: 26, color: '#fff' }}>50% OFF</Text>
             <Text style={styles.textStyle}>On first 03 order</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );

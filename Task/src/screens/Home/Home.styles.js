@@ -45,6 +45,21 @@ export default StyleSheet.create({
   },
 
   offersContainer: {
-    marginTop: 22
+    marginTop: 22,
+  },
+
+  recommendedContainer: {
+    paddingHorizontal: 14,
+    paddingTop: 18,
+    paddingBottom: 70, 
+  },
+
+  textHeading: {
+    fontSize: 30,
+    paddingBottom: 12,
+  },
+
+  container: {
+    padding: 8,
   },
 });
