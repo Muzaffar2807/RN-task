@@ -86,6 +86,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderRadius: 16,
     height: 60,
-    backgroundColor: 'blue',
+    backgroundColor: '#2A4BA0',
   },
 });

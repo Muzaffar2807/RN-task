@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import HeartIcon from 'react-native-vector-icons/FontAwesome';
 import PlusIcon from 'react-native-vector-icons/AntDesign';
+import {useNavigation} from '@react-navigation/native';
 
 const truncateTitle = (title, maxLength) => {
   if (title.length <= maxLength) {
@@ -18,10 +19,14 @@ const truncateTitle = (title, maxLength) => {
 };
 
 const ProductCard = ({product}) => {
+  const navigation = useNavigation();
   const truncatedTitle = truncateTitle(product.title, 14);
 
   return (
-    <Pressable>
+    <Pressable
+      onPress={() => {
+        navigation.navigate('Productdetails', { product });
+      }}>
       <View style={styles.container}>
         <TouchableOpacity>
           <HeartIcon size={18} name="heart-o" />
@@ -36,9 +41,11 @@ const ProductCard = ({product}) => {
             <Text style={styles.name}>{truncatedTitle}</Text>
           </View>
 
-          <View>
-            <PlusIcon name="plus" size={14} />
-          </View>
+          <TouchableOpacity>
+            <View style={styles.addCartButton}>
+              <PlusIcon name="plus" size={12} color="#FFF" />
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     </Pressable>
@@ -62,8 +69,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
-
+    justifyContent: 'space-between',
   },
   imageContainer: {
     display: 'flex',
@@ -85,6 +91,15 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 12,
     fontWeight: 'bold',
+  },
+  addCartButton: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 24,
+    height: 24,
+    borderRadius: 50,
+    backgroundColor: '#2A4BA0',
   },
 });
 
