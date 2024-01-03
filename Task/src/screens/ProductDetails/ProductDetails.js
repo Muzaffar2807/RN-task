@@ -36,7 +36,9 @@ const ProductDetails = ({route, navigation}) => {
           <LeftIcon name="chevron-left" color="#000" size={18} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.cartButton}>
+        <TouchableOpacity
+          style={styles.cartButton}
+          onPress={() => navigation.navigate('CartScreen')}>
           <Icons name="handbag" size={22} color="#000" />
         </TouchableOpacity>
       </View>
@@ -137,14 +139,20 @@ const ProductDetails = ({route, navigation}) => {
 
         <TouchableOpacity
           style={[styles.actionButtons, {backgroundColor: '#2A4BA0'}]}>
-          <Text style={{color: '#FFF', fontSize: 14, fontWeight: 600}}>Buy Now</Text>
+          <Text style={{color: '#FFF', fontSize: 14, fontWeight: 600}}>
+            Buy Now
+          </Text>
         </TouchableOpacity>
       </View>
 
-      <View style={{ marginVertical: 5, paddingBottom: 8}}>
-        <Text style={{ color: '#1E222B', fontSize: 16, fontWeight: 400}}>Details</Text>
+      <View style={{marginVertical: 5, paddingBottom: 8}}>
+        <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 400}}>
+          Details
+        </Text>
 
-        <Text style={{ fontSize: 16, lineHeight: 26}}>{product?.description}</Text>
+        <Text style={{fontSize: 16, lineHeight: 26}}>
+          {product?.description}
+        </Text>
       </View>
     </ScrollView>
   );
