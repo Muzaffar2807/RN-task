@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Pressable,
 } from 'react-native';
-import HeartIcon from 'react-native-vector-icons/FontAwesome';
+import HeartIcon from 'react-native-vector-icons/Ionicons';
 import PlusIcon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 
@@ -25,11 +25,11 @@ const ProductCard = ({product}) => {
   return (
     <Pressable
       onPress={() => {
-        navigation.navigate('Productdetails', { product });
+        navigation.navigate('Productdetails', {product});
       }}>
       <View style={styles.container}>
         <TouchableOpacity>
-          <HeartIcon size={18} name="heart-o" />
+          <HeartIcon size={22} name="heart-outline" />
         </TouchableOpacity>
 
         <View style={styles.imageContainer}>
