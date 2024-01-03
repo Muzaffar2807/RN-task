@@ -46,24 +46,46 @@ const ProductDetails = ({route, navigation}) => {
         <Rating rating={product.rating} />
       </View>
 
-      <View style={{marginTop: 30, height: 400}}>
-        <Swiper style={styles.wrapper2} dotColor="#FFFFFF" loop={false}> 
-        {imagesOfProduct.map((img, index) => (
+      <View style={{marginTop: 30, height: 260}}>
+        <Swiper
+          style={styles.wrapper2}
+          dotColor="#CCC"
+          activeDotColor="#F9B023"
+          paginationStyle={{
+            flexDirection: 'row',
+            position: 'absolute',
+            bottom: 10,
+            left: 10,
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+          }}
+          loop={true}
+          autoplay={true}
+          showsPagination={true}
+          dotStyle={{
+            width: 22,
+            height: 5,
+            borderRadius: 2,
+          }}
+          activeDotStyle={{
+            width: 22,
+            height: 5,
+            borderRadius: 2,
+          }}>
+          {imagesOfProduct.map((img, index) => (
             <View key={index} style={styles.slide}>
               <Image
                 source={{uri: img}}
                 style={{
                   flex: 1,
                   width: '100%',
-                  height: '100%',
-                  borderRadius: 10,
+                  height: '90%',
                 }}
-                resizeMode="contain"
               />
             </View>
-          ))}  
+          ))}
         </Swiper>
-      </View> 
+      </View>
     </View>
   );
 };
