@@ -1,12 +1,12 @@
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView, Image} from 'react-native';
 import React, {useEffect} from 'react';
 
 import LeftIcon from 'react-native-vector-icons/Octicons';
+import PlusIcon from 'react-native-vector-icons/AntDesign';
 
 import styles from './Cart.styles';
 
 const Cart = ({navigation}) => {
-
   //hiding bottom navigator
   useEffect(() => {
     navigation
@@ -19,8 +19,7 @@ const Cart = ({navigation}) => {
   }, [navigation]);
 
   return (
-    <View style={styles.cartContainer}>
-
+    <ScrollView style={styles.cartContainer}>
       <View style={styles.cartHeading}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -32,12 +31,121 @@ const Cart = ({navigation}) => {
         </Text>
       </View>
 
-      <ScrollView>
-        <View> 
-          
+
+      {/* CartItem */}
+      <View>
+        <View style={styles.cartItems}>
+          <View style={styles.leftCartItem}>
+            <Image
+              source={{
+                uri: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
+              }}
+              resizeMode="cover"
+              style={{width: 62, height: 62, borderRadius: 8}}
+            />
+          </View>
+
+          <View style={styles.cartItemNames}>
+            <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 500}}>
+              Bananas
+            </Text>
+            <Text style={{color: '#1E222B', fontSize: 14, fontWeight: 400}}>
+              $7.90
+            </Text>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.backButton}>
+              <PlusIcon name="minus" size={16} color="#000" />
+            </TouchableOpacity>
+
+            <View>
+              <Text> 1 </Text>
+            </View>
+            <TouchableOpacity style={styles.backButton}>
+              <PlusIcon name="plus" size={16} color="#000" />
+            </TouchableOpacity>
+          </View>
         </View>
-      </ScrollView>
-    </View>
+
+        <View style={styles.cartItems}>
+          <View style={styles.leftCartItem}>
+            <Image
+              source={{
+                uri: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
+              }}
+              resizeMode="cover"
+              style={{width: 62, height: 62, borderRadius: 8}}
+            />
+          </View>
+
+          <View style={styles.cartItemNames}>
+            <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 500}}>
+              Bananas
+            </Text>
+            <Text style={{color: '#1E222B', fontSize: 14, fontWeight: 400}}>
+              $7.90
+            </Text>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.backButton}>
+              <PlusIcon name="minus" size={16} color="#000" />
+            </TouchableOpacity>
+
+            <View>
+              <Text> 1 </Text>
+            </View>
+            <TouchableOpacity style={styles.backButton}>
+              <PlusIcon name="plus" size={16} color="#000" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.cartItems}>
+          <View style={styles.leftCartItem}>
+            <Image
+              source={{
+                uri: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
+              }}
+              resizeMode="cover"
+              style={{width: 62, height: 62, borderRadius: 8}}
+            />
+          </View>
+
+          <View style={styles.cartItemNames}>
+            <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 500}}>
+              Bananas
+            </Text>
+            <Text style={{color: '#1E222B', fontSize: 14, fontWeight: 400}}>
+              $7.90
+            </Text>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.backButton}>
+              <PlusIcon name="minus" size={16} color="#000" />
+            </TouchableOpacity>
+
+            <View>
+              <Text> 1 </Text>
+            </View>
+            <TouchableOpacity style={styles.backButton}>
+              <PlusIcon name="plus" size={16} color="#000" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        
+      </View>
+
+
+      <View style={{ marginLeft: 'auto'}}>
+        <TouchableOpacity>
+          <Text style={{ color: '#2A4BA0', fontSize: 14}}>Edit</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 
