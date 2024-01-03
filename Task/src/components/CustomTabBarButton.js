@@ -64,7 +64,8 @@ export default CustomTabBarButton;
 const styles = StyleSheet.create({
   btnWrapper: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center', 
+   
   },
   activeBtn: {
     flex: 1,

@@ -1,43 +1,90 @@
-// ProductItem.js
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
+import HeartIcon from 'react-native-vector-icons/FontAwesome';
+import PlusIcon from 'react-native-vector-icons/AntDesign';
 
-const ProductCard = ({product}) => { 
-  
+const truncateTitle = (title, maxLength) => {
+  if (title.length <= maxLength) {
+    return title;
+  }
+  return title.substring(0, maxLength - 3) + '...';
+};
+
+const ProductCard = ({product}) => {
+  const truncatedTitle = truncateTitle(product.title, 14);
 
   return (
-    <View style={styles.container}>
-      
-      <Text style={styles.name}>{product.title}</Text>
-      <Text style={styles.price}>{`$${product.price}`}</Text>
-    </View>
+    <Pressable>
+      <View style={styles.container}>
+        <TouchableOpacity>
+          <HeartIcon size={18} name="heart-o" />
+        </TouchableOpacity>
+
+        <View style={styles.imageContainer}>
+          <Image source={{uri: product.thumbnail}} style={styles.image} />
+        </View>
+        <View style={styles.listingContainer}>
+          <View>
+            <Text style={styles.price}>{`$${product.price}`}</Text>
+            <Text style={styles.name}>{truncatedTitle}</Text>
+          </View>
+
+          <View>
+            <PlusIcon name="plus" size={14} />
+          </View>
+        </View>
+      </View>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     margin: 5,
-    
-    paddingTop: 14, 
-    borderWidth: 1,
+    padding: 18,
+    width: 170,
+    height: 220,
+    paddingTop: 14,
     borderColor: '#ddd',
-    borderRadius: 8,
+    borderRadius: 12,
+    backgroundColor: '#f8f9fb',
+  },
+  listingContainer: {
+    marginTop: 14,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+
+  },
+  imageContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
-    width: 160,
-    height: 150,
+    width: 100,
+    height: 100,
+    marginTop: 8,
     marginBottom: 8,
-    borderRadius: 4,
+    borderRadius: 12,
   },
   name: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  price: {
     fontSize: 14,
     color: '#888',
+    marginBottom: 4,
+  },
+  price: {
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });
 

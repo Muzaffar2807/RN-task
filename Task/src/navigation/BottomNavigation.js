@@ -84,9 +84,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: 'transparent',
     borderTopWidth: 0,
-    bottom: 15,
-    right: 10,
-    left: 10,
-    height: 60, 
+    borderRadius: 16,
+    height: 60,
+    backgroundColor: 'blue',
   },
 });

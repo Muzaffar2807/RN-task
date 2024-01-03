@@ -6,7 +6,7 @@ import {BottomTabBar} from '@react-navigation/bottom-tabs';
 const CustomTabBar = props => {
   return (
     <View>
-      <View style={styles.tabBar} />
+     {/*  <View style={styles.tabBar} /> */}
       <BottomTabBar {...props} />
     </View>
   );
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     left: 10,
-    bottom: 38,
+    bottom: 0,
     height: 20,
     backgroundColor: '#fff',
     borderRadius: 10,
