@@ -25,7 +25,7 @@ const ProductDetails = ({route, navigation}) => {
   const product = route.params.product;
   const imagesOfProduct = product.images;
 
- // console.log(product);
+  // console.log(product);
 
   return (
     <ScrollView style={styles.deatilsContainer}>
@@ -45,7 +45,11 @@ const ProductDetails = ({route, navigation}) => {
 
       <View>
         <Text style={styles.heading}>{product.title}</Text>
-        <Text style={[styles.heading, {fontWeight: 'bold', marginBottom: 10}]}>
+        <Text
+          style={[
+            styles.heading,
+            {fontFamily: 'Manrope-ExtraBold', marginBottom: 10},
+          ]}>
           {product.brand}
         </Text>
         <Rating rating={product.rating} />
@@ -111,7 +115,11 @@ const ProductDetails = ({route, navigation}) => {
           alignItems: 'center',
         }}>
         <Text
-          style={{fontSize: 18, color: '#2A4BA0'}}>{`$${product.price}`}</Text>
+          style={{
+            fontSize: 18,
+            color: '#2A4BA0',
+            fontFamily: 'Manrope-Bold',
+          }}>{`$${product.price}`}</Text>
         <View
           style={{
             height: 34,
@@ -122,7 +130,9 @@ const ProductDetails = ({route, navigation}) => {
             alignItems: 'center',
             borderRadius: 17,
           }}>
-          <Text style={{color: '#fff'}}>{product.discountPercentage}% OFF</Text>
+          <Text style={{color: '#fff', fontFamily: 'Manrope-Regular'}}>
+            {product.discountPercentage}% OFF
+          </Text>
         </View>
       </View>
 
@@ -132,25 +142,37 @@ const ProductDetails = ({route, navigation}) => {
             styles.actionButtons,
             {borderColor: '#2A4BA0', borderWidth: 2},
           ]}>
-          <Text style={{color: '#2A4BA0', fontSize: 14, fontWeight: 600}}>
+          <Text
+            style={{
+              color: '#2A4BA0',
+              fontSize: 14,
+              fontFamily: 'Manrope-Bold',
+            }}>
             Add To Cart
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={[styles.actionButtons, {backgroundColor: '#2A4BA0'}]}>
-          <Text style={{color: '#FFF', fontSize: 14, fontWeight: 600}}>
+          <Text
+            style={{color: '#FFF', fontSize: 14, fontFamily: 'Manrope-Bold'}}>
             Buy Now
           </Text>
         </TouchableOpacity>
       </View>
 
       <View style={{marginVertical: 5, paddingBottom: 8}}>
-        <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 400}}>
+        <Text
+          style={{
+            color: '#1E222B',
+            fontSize: 16,
+            fontFamily: 'Manrope-Medium',
+          }}>
           Details
         </Text>
 
-        <Text style={{fontSize: 16, lineHeight: 26}}>
+        <Text
+          style={{fontSize: 16, lineHeight: 26, fontFamily: 'Manrope-Light'}}>
           {product?.description}
         </Text>
       </View>

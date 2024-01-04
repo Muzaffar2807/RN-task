@@ -13,7 +13,9 @@ const StarsRating = ({rating}) => {
         fullStarColor="#F9B023"
         emptyStarColor="#1E222B"
       />
-      <Text>{rating.toFixed(2)} Reviews</Text>
+      <Text style={{fontFamily: 'Manrope-Light'}}>
+        {rating.toFixed(2)} Reviews
+      </Text>
     </View>
   );
 };

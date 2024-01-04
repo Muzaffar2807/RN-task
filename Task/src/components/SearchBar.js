@@ -42,8 +42,9 @@ const styles = StyleSheet.create({
   input: {
     height: 56,
     flex: 1,
-    paddingHorizontal: 10, 
-    color: '#fff'
+    paddingHorizontal: 10,
+    color: '#fff',
+    fontFamily: 'Manrope-Regular',
   },
   icon: {
     marginRight: 6,

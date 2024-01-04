@@ -22,6 +22,7 @@ export default StyleSheet.create({
   userName: {
     color: '#fff',
     fontSize: 22,
+    fontFamily: 'Manrope-Bold',
   },
   deliveryAddress: {
     display: 'flex',
@@ -38,10 +39,12 @@ export default StyleSheet.create({
   addressHeading: {
     color: '#ccc',
     fontSize: 11,
+    fontFamily: 'Manrope-Regular',
   },
   addressTextSize: {
     color: '#F8F9FB',
     fontSize: 14,
+    fontFamily: 'Manrope-Regular',
   },
 
   offersContainer: {
@@ -51,12 +54,14 @@ export default StyleSheet.create({
   recommendedContainer: {
     paddingHorizontal: 14,
     paddingTop: 18,
-    paddingBottom: 70, 
+    paddingBottom: 70,
   },
 
   textHeading: {
     fontSize: 30,
     paddingBottom: 12,
+    fontFamily: 'Manrope-Medium',
+    color: '#1E222B',
   },
 
   container: {

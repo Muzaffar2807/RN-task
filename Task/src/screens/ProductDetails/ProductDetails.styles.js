@@ -12,6 +12,7 @@ export default StyleSheet.create({
   heading: {
     fontSize: 40,
     color: '#1E222B',
+    fontFamily: 'Manrope-Regular',
   },
 
   backButton: {
@@ -84,7 +85,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  
+
   addToFavoritesButtonText: {
     color: '#000',
   },
@@ -95,13 +96,12 @@ export default StyleSheet.create({
     gap: 30,
     alignItems: 'center',
     marginVertical: 24,
-
   },
 
   actionButtons: {
     width: 160,
     height: 56,
-    borderRadius: 20, 
+    borderRadius: 20,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

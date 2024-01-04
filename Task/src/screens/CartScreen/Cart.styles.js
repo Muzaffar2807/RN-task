@@ -65,14 +65,14 @@ export default StyleSheet.create({
   },
 
   priceHeadingText: {
+    color: '#616A7D',
     fontSize: 14,
-    color: '#616A7D', 
-
+    fontFamily: 'Manrope-Regular',
   },
 
   priceText: {
     fontSize: 14,
-    fontWeight: 600,
     color: '#1E222B',
+    fontFamily: 'Manrope-Bold',
   },
 });

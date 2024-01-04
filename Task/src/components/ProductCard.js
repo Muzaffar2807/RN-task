@@ -85,12 +85,15 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 14,
-    color: '#888',
+    color: '#616A7D',
     marginBottom: 4,
+    fontFamily: 'Manrope-Light',
   },
   price: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
+    fontFamily: 'Manrope-Medium',
+    color: '#1E222B',
   },
   addCartButton: {
     display: 'flex',

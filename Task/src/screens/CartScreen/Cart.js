@@ -28,7 +28,12 @@ const Cart = ({navigation}) => {
               style={styles.backButton}>
               <LeftIcon name="chevron-left" color="#000" size={18} />
             </TouchableOpacity>
-            <Text style={{color: '#000', fontSize: 16, fontWeight: 400}}>
+            <Text
+              style={{
+                color: '#000',
+                fontSize: 16,
+                fontFamily: 'Manrope-Medium',
+              }}>
               Shoppping Cart (5)
             </Text>
           </View>
@@ -47,10 +52,20 @@ const Cart = ({navigation}) => {
               </View>
 
               <View style={styles.cartItemNames}>
-                <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 500}}>
+                <Text
+                  style={{
+                    color: '#1E222B',
+                    fontSize: 16,
+                    fontFamily: 'Manrope-SemiBold',
+                  }}>
                   Bananas
                 </Text>
-                <Text style={{color: '#1E222B', fontSize: 14, fontWeight: 400}}>
+                <Text
+                  style={{
+                    color: '#1E222B',
+                    fontSize: 14,
+                    fontFamily: 'Manrope-Regular',
+                  }}>
                   $7.90
                 </Text>
               </View>
@@ -61,7 +76,10 @@ const Cart = ({navigation}) => {
                 </TouchableOpacity>
 
                 <View>
-                  <Text> 1 </Text>
+                  <Text style={{color: '#1E222B', fontFamily: 'Manrope-Bold'}}>
+                    {' '}
+                    1{' '}
+                  </Text>
                 </View>
                 <TouchableOpacity style={styles.backButton}>
                   <PlusIcon name="plus" size={16} color="#000" />
@@ -81,10 +99,20 @@ const Cart = ({navigation}) => {
               </View>
 
               <View style={styles.cartItemNames}>
-                <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 500}}>
+                <Text
+                  style={{
+                    color: '#1E222B',
+                    fontSize: 16,
+                    fontFamily: 'Manrope-SemiBold',
+                  }}>
                   Bananas
                 </Text>
-                <Text style={{color: '#1E222B', fontSize: 14, fontWeight: 400}}>
+                <Text
+                  style={{
+                    color: '#1E222B',
+                    fontSize: 14,
+                    fontFamily: 'Manrope-Regular',
+                  }}>
                   $7.90
                 </Text>
               </View>
@@ -95,7 +123,10 @@ const Cart = ({navigation}) => {
                 </TouchableOpacity>
 
                 <View>
-                  <Text> 1 </Text>
+                  <Text style={{color: '#1E222B', fontFamily: 'Manrope-Bold'}}>
+                    {' '}
+                    1{' '}
+                  </Text>
                 </View>
                 <TouchableOpacity style={styles.backButton}>
                   <PlusIcon name="plus" size={16} color="#000" />
@@ -115,10 +146,20 @@ const Cart = ({navigation}) => {
               </View>
 
               <View style={styles.cartItemNames}>
-                <Text style={{color: '#1E222B', fontSize: 16, fontWeight: 500}}>
+                <Text
+                  style={{
+                    color: '#1E222B',
+                    fontSize: 16,
+                    fontFamily: 'Manrope-SemiBold',
+                  }}>
                   Bananas
                 </Text>
-                <Text style={{color: '#1E222B', fontSize: 14, fontWeight: 400}}>
+                <Text
+                  style={{
+                    color: '#1E222B',
+                    fontSize: 14,
+                    fontFamily: 'Manrope-Regular',
+                  }}>
                   $7.90
                 </Text>
               </View>
@@ -129,7 +170,9 @@ const Cart = ({navigation}) => {
                 </TouchableOpacity>
 
                 <View>
-                  <Text> 1 </Text>
+                  <Text style={{color: '#1E222B', fontFamily: 'Manrope-Bold'}}>
+                    1
+                  </Text>
                 </View>
                 <TouchableOpacity style={styles.backButton}>
                   <PlusIcon name="plus" size={16} color="#000" />
@@ -140,7 +183,14 @@ const Cart = ({navigation}) => {
 
           <View style={{marginLeft: 'auto'}}>
             <TouchableOpacity>
-              <Text style={{color: '#2A4BA0', fontSize: 14}}>Edit</Text>
+              <Text
+                style={{
+                  color: '#2A4BA0',
+                  fontSize: 14,
+                  fontFamily: 'Manrope-Medium',
+                }}>
+                Edit
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -160,33 +210,21 @@ const Cart = ({navigation}) => {
                 paddingVertical: 20,
               }}>
               <View style={styles.flexRow}>
-                <Text style={{color: '#616A7D', fontSize: 14, fontWeight: 400}}>
-                  Subttotal
-                </Text>
+                <Text style={styles.priceHeadingText}>Subttotal</Text>
 
-                <Text style={{fontSize: 14, fontWeight: 600, color: '#1E222B'}}>
-                  $35.96
-                </Text>
+                <Text style={styles.priceText}>$35.96</Text>
               </View>
 
               <View style={styles.flexRow}>
-                <Text style={{color: '#616A7D', fontSize: 14, fontWeight: 400}}>
-                  Delivery
-                </Text>
+                <Text style={styles.priceHeadingText}>Delivery</Text>
 
-                <Text style={{fontSize: 14, fontWeight: 600, color: '#1E222B'}}>
-                  $3
-                </Text>
+                <Text style={styles.priceText}>$3</Text>
               </View>
 
               <View style={styles.flexRow}>
-                <Text style={{color: '#616A7D', fontSize: 14, fontWeight: 400}}>
-                  Total
-                </Text>
+                <Text style={styles.priceHeadingText}>Total</Text>
 
-                <Text style={{fontSize: 14, fontWeight: 600, color: '#1E222B'}}>
-                  $38.96
-                </Text>
+                <Text style={styles.priceText}>$38.96</Text>
               </View>
             </View>
 
@@ -201,7 +239,13 @@ const Cart = ({navigation}) => {
                 backgroundColor: '#2A4BA0',
                 marginHorizontal: 14,
               }}>
-              <Text style={{fontSize: 14, fontWeight: 600, color: '#FFF'}}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: 600,
+                  color: '#FFF',
+                  fontFamily: 'Manrope-Bold',
+                }}>
                 Proceed To checkout
               </Text>
             </TouchableOpacity>

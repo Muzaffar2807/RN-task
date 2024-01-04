@@ -1,12 +1,15 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 
 const OffersCard = () => {
-  const data = [
-    {id: 1},
-    {id: 2},
-    {id: 3}, 
-  ];
+  const data = [{id: 1}, {id: 2}, {id: 3}];
 
   return (
     <ScrollView
@@ -23,7 +26,10 @@ const OffersCard = () => {
           </View>
           <View>
             <Text style={styles.textStyle}>Get</Text>
-            <Text style={{fontSize: 26, color: '#fff' }}>50% OFF</Text>
+            <Text
+              style={{fontSize: 26, color: '#fff', fontFamily: 'Manrope-Bold'}}>
+              50% OFF
+            </Text>
             <Text style={styles.textStyle}>On first 03 order</Text>
           </View>
         </TouchableOpacity>
@@ -44,7 +50,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9B023',
     alignItems: 'center',
     padding: 10,
-    marginHorizontal: 5, 
+    marginHorizontal: 5,
     borderRadius: 16,
     minWidth: 280,
   },
@@ -55,7 +61,8 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: '#fff',
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: 'Manrope-Medium',
   },
 });
 
