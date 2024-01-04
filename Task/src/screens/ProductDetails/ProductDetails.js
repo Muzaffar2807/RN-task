@@ -25,7 +25,7 @@ const ProductDetails = ({route, navigation}) => {
   const product = route.params.product;
   const imagesOfProduct = product.images;
 
-  console.log(product);
+ // console.log(product);
 
   return (
     <ScrollView style={styles.deatilsContainer}>
