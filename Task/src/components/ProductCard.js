@@ -10,6 +10,7 @@ import {
 import HeartIcon from 'react-native-vector-icons/Ionicons';
 import PlusIcon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 const truncateTitle = (title, maxLength) => {
   if (title.length <= maxLength) {
@@ -18,9 +19,13 @@ const truncateTitle = (title, maxLength) => {
   return title.substring(0, maxLength - 3) + '...';
 };
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, onAddToCart}) => {
   const navigation = useNavigation();
   const truncatedTitle = truncateTitle(product.title, 14);
+
+  const cartItems = useSelector(state => state)
+
+  console.log(cartItems)
 
   return (
     <Pressable
@@ -41,7 +46,7 @@ const ProductCard = ({product}) => {
             <Text style={styles.name}>{truncatedTitle}</Text>
           </View>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => {onAddToCart(product)}}>
             <View style={styles.addCartButton}>
               <PlusIcon name="plus" size={12} color="#FFF" />
             </View>

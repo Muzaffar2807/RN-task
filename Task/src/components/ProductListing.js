@@ -9,8 +9,12 @@ import React, {useEffect, useState} from 'react';
 import ProductCard from './ProductCard';
 import {ScrollView} from 'react-native-virtualized-view';
 import axios from 'axios';
+import {useDispatch} from 'react-redux';
+import {addItemToCart} from '../redux/actions/Actions';
 
 const ProductListing = () => {
+  const dispatch = useDispatch();
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -37,15 +41,20 @@ const ProductListing = () => {
     );
   }
 
-  
-
   return (
     <ScrollView>
       <FlatList
         data={products}
         numColumns={2}
         keyExtractor={item => item.id.toString()}
-        renderItem={({item}) => <ProductCard product={item} />}
+        renderItem={({item}) => (
+          <ProductCard
+            product={item}
+            onAddToCart={item => {
+              dispatch(addItemToCart(item));
+            }}
+          />
+        )}
         contentContainerStyle={styles.container}
       />
     </ScrollView>
