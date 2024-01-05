@@ -1,8 +1,11 @@
-import { createStore } from "redux";
+import {createStore} from 'redux';
+import {combineReducers} from 'redux';
 
-import reducers from "../reducer/Reducers";
+import CartReducer from '../reducer/CartReducer';
+import FavouritesReducer from '../reducer/FavouritesReducer';
 
-const store = createStore(reducers);
+const routeReducer = combineReducers({CartReducer, FavouritesReducer});
 
-export default store
+const store = createStore(routeReducer);
 
+export default store;

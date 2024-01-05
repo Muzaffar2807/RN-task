@@ -10,7 +10,7 @@ import Swiper from 'react-native-swiper';
 
 import HeartIcon from 'react-native-vector-icons/Ionicons';
 
-const ProductDetails = ({route, navigation}) => {
+const ProductDetails = ({route, navigation, onAddToFavourites}) => {
   //hiding bottom navigator
   useEffect(() => {
     navigation
@@ -141,7 +141,8 @@ const ProductDetails = ({route, navigation}) => {
           style={[
             styles.actionButtons,
             {borderColor: '#2A4BA0', borderWidth: 2},
-          ]}>
+          ]}
+          onPress={() => {onAddToFavourites(product)}}>
           <Text
             style={{
               color: '#2A4BA0',

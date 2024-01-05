@@ -19,21 +19,21 @@ const truncateTitle = (title, maxLength) => {
   return title.substring(0, maxLength - 3) + '...';
 };
 
-const ProductCard = ({product, onAddToCart}) => {
+const ProductCard = ({product, onAddToCart, onAddToFavourites}) => {
   const navigation = useNavigation();
   const truncatedTitle = truncateTitle(product.title, 14);
 
-  const cartItems = useSelector(state => state)
+  const cartItems = useSelector(state => state.CartReducer);
 
-  console.log(cartItems)
+ // console.log(cartItems)
 
   return (
     <Pressable
       onPress={() => {
-        navigation.navigate('Productdetails', {product});
+        navigation.navigate('Productdetails', {product, onAddToFavourites});
       }}>
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onAddToFavourites(product)}>
           <HeartIcon size={22} name="heart-outline" />
         </TouchableOpacity>
 
@@ -46,7 +46,10 @@ const ProductCard = ({product, onAddToCart}) => {
             <Text style={styles.name}>{truncatedTitle}</Text>
           </View>
 
-          <TouchableOpacity onPress={() => {onAddToCart(product)}}>
+          <TouchableOpacity
+            onPress={() => {
+              onAddToCart(product);
+            }}>
             <View style={styles.addCartButton}>
               <PlusIcon name="plus" size={12} color="#FFF" />
             </View>

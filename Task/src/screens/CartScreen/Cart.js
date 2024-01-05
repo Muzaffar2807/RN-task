@@ -5,6 +5,7 @@ import LeftIcon from 'react-native-vector-icons/Octicons';
 import PlusIcon from 'react-native-vector-icons/AntDesign';
 
 import styles from './Cart.styles';
+import {useSelector} from 'react-redux';
 
 const Cart = ({navigation}) => {
   //hiding bottom navigator
@@ -18,6 +19,8 @@ const Cart = ({navigation}) => {
         ?.setOptions({tabBarStyle: undefined, tabBarVisible: undefined});
   }, [navigation]);
 
+  const cartItems = useSelector(state => state.CartReducer);
+ 
   return (
     <ScrollView style={styles.cartContainer}>
       <View style={{flex: 1}}>
@@ -34,151 +37,71 @@ const Cart = ({navigation}) => {
                 fontSize: 16,
                 fontFamily: 'Manrope-Medium',
               }}>
-              Shoppping Cart (5)
+              Shoppping Cart ({cartItems?.length})
             </Text>
           </View>
 
           {/* CartItem */}
           <View>
-            <View style={styles.cartItems}>
-              <View style={styles.leftCartItem}>
-                <Image
-                  source={{
-                    uri: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-                  }}
-                  resizeMode="cover"
-                  style={{width: 62, height: 62, borderRadius: 8}}
-                />
+            {cartItems && cartItems.length > 0 ? (
+              <>
+                {cartItems.map((product, index) => (
+                  <View style={styles.cartItems} key={index}>
+                    <View style={styles.leftCartItem}>
+                      <Image
+                        source={{
+                          uri: product?.thumbnail,
+                        }}
+                        resizeMode="cover"
+                        style={{width: 62, height: 62, borderRadius: 8}}
+                      />
+                    </View>
+
+                    <View style={styles.cartItemNames}>
+                      <Text
+                        style={{
+                          color: '#1E222B',
+                          fontSize: 16,
+                          fontFamily: 'Manrope-SemiBold',
+                        }}>
+                        {product?.title}
+                      </Text>
+                      <Text
+                        style={{
+                          color: '#1E222B',
+                          fontSize: 14,
+                          fontFamily: 'Manrope-Regular',
+                        }}>
+                        {`$${product?.price}`}
+                      </Text>
+                    </View>
+
+                    <View style={styles.buttonContainer}>
+                      <TouchableOpacity style={styles.backButton}>
+                        <PlusIcon name="minus" size={16} color="#000" />
+                      </TouchableOpacity>
+
+                      <View>
+                        <Text
+                          style={{
+                            color: '#1E222B',
+                            fontFamily: 'Manrope-Bold',
+                          }}>
+                          1
+                        </Text>
+                      </View>
+                      <TouchableOpacity style={styles.backButton}>
+                        <PlusIcon name="plus" size={16} color="#000" />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                ))}
+              </>
+            ) : (
+              <View>
+                <Text>No Product in cart</Text>
               </View>
-
-              <View style={styles.cartItemNames}>
-                <Text
-                  style={{
-                    color: '#1E222B',
-                    fontSize: 16,
-                    fontFamily: 'Manrope-SemiBold',
-                  }}>
-                  Bananas
-                </Text>
-                <Text
-                  style={{
-                    color: '#1E222B',
-                    fontSize: 14,
-                    fontFamily: 'Manrope-Regular',
-                  }}>
-                  $7.90
-                </Text>
-              </View>
-
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.backButton}>
-                  <PlusIcon name="minus" size={16} color="#000" />
-                </TouchableOpacity>
-
-                <View>
-                  <Text style={{color: '#1E222B', fontFamily: 'Manrope-Bold'}}>
-                    {' '}
-                    1{' '}
-                  </Text>
-                </View>
-                <TouchableOpacity style={styles.backButton}>
-                  <PlusIcon name="plus" size={16} color="#000" />
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <View style={styles.cartItems}>
-              <View style={styles.leftCartItem}>
-                <Image
-                  source={{
-                    uri: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-                  }}
-                  resizeMode="cover"
-                  style={{width: 62, height: 62, borderRadius: 8}}
-                />
-              </View>
-
-              <View style={styles.cartItemNames}>
-                <Text
-                  style={{
-                    color: '#1E222B',
-                    fontSize: 16,
-                    fontFamily: 'Manrope-SemiBold',
-                  }}>
-                  Bananas
-                </Text>
-                <Text
-                  style={{
-                    color: '#1E222B',
-                    fontSize: 14,
-                    fontFamily: 'Manrope-Regular',
-                  }}>
-                  $7.90
-                </Text>
-              </View>
-
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.backButton}>
-                  <PlusIcon name="minus" size={16} color="#000" />
-                </TouchableOpacity>
-
-                <View>
-                  <Text style={{color: '#1E222B', fontFamily: 'Manrope-Bold'}}>
-                    {' '}
-                    1{' '}
-                  </Text>
-                </View>
-                <TouchableOpacity style={styles.backButton}>
-                  <PlusIcon name="plus" size={16} color="#000" />
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <View style={styles.cartItems}>
-              <View style={styles.leftCartItem}>
-                <Image
-                  source={{
-                    uri: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-                  }}
-                  resizeMode="cover"
-                  style={{width: 62, height: 62, borderRadius: 8}}
-                />
-              </View>
-
-              <View style={styles.cartItemNames}>
-                <Text
-                  style={{
-                    color: '#1E222B',
-                    fontSize: 16,
-                    fontFamily: 'Manrope-SemiBold',
-                  }}>
-                  Bananas
-                </Text>
-                <Text
-                  style={{
-                    color: '#1E222B',
-                    fontSize: 14,
-                    fontFamily: 'Manrope-Regular',
-                  }}>
-                  $7.90
-                </Text>
-              </View>
-
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.backButton}>
-                  <PlusIcon name="minus" size={16} color="#000" />
-                </TouchableOpacity>
-
-                <View>
-                  <Text style={{color: '#1E222B', fontFamily: 'Manrope-Bold'}}>
-                    1
-                  </Text>
-                </View>
-                <TouchableOpacity style={styles.backButton}>
-                  <PlusIcon name="plus" size={16} color="#000" />
-                </TouchableOpacity>
-              </View>
-            </View>
+            )} 
           </View>
 
           <View style={{marginLeft: 'auto'}}>

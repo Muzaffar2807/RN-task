@@ -10,7 +10,7 @@ import ProductCard from './ProductCard';
 import {ScrollView} from 'react-native-virtualized-view';
 import axios from 'axios';
 import {useDispatch} from 'react-redux';
-import {addItemToCart} from '../redux/actions/Actions';
+import {addItemToCart, addToFavourites} from '../redux/actions/Actions';
 
 const ProductListing = () => {
   const dispatch = useDispatch();
@@ -52,6 +52,9 @@ const ProductListing = () => {
             product={item}
             onAddToCart={item => {
               dispatch(addItemToCart(item));
+            }}
+            onAddToFavourites= { item => {
+              dispatch(addToFavourites(item));
             }}
           />
         )}

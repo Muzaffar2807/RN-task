@@ -11,16 +11,48 @@ import ProductCard from '../../components/ProductCard';
 import ProductListing from '../../components/ProductListing';
 
 import {ScrollView} from 'react-native-virtualized-view';
+import {useSelector} from 'react-redux';
 
 const Home = ({navigation}) => {
+  const cartItems = useSelector(state => state.CartReducer);
+
   return (
     <ScrollView style={styles.mainWrapper}>
       <View style={styles.searchContainer}>
         <View style={styles.nameContainer}>
           <Text style={styles.userName}>Hey, Rahul</Text>
 
-          <TouchableOpacity onPress={() => { navigation.navigate('CartScreen') }}> 
-              <Icons name="handbag" size={22} color="#fff" /> 
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('CartScreen');
+            }}
+            style={{
+              display: 'flex',
+              position: 'relative',
+            }}>
+            {cartItems && cartItems.length > 0 ? (
+              <View
+                style={{
+                  backgroundColor: 'red',
+                  alignItems: 'center',
+                  position: 'absolute',
+                  top: -8,
+                  left: 16,
+                  width: 20,
+                  height: 20,
+                  borderRadius: 50,
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}>
+                <Text style={{color: '#fff', fontSize: 12}}>
+                  {cartItems?.length}
+                </Text>
+              </View>
+            ) : (
+              <></>
+            )}
+
+            <Icons name="handbag" size={26} color="#fff" />
           </TouchableOpacity>
         </View>
 
